@@ -4,20 +4,21 @@
     {
         static void Main(string[] args)
         {
-            ReadNumber();
+            int number = ReadNumber("Введите число: ");
+            Console.WriteLine(number);
         }
-        static void ReadNumber()
+
+        static int ReadNumber(string text)
         {
             bool isNumber = true;
-            
+            int number = 0;
+
             while (isNumber)
             {
-                int number;
-                Console.Write("Введите число: ");
+                Console.Write(text);
 
                 if (int.TryParse(Console.ReadLine(), out number) == true)
                 {
-                    Console.WriteLine(number);
                     isNumber = false;
                 }
                 else
@@ -25,6 +26,8 @@
                     Console.WriteLine("Вы ввели что-то не то. Нужно вести число.");
                 }
             }
+
+            return number;
         }
     }
 }
